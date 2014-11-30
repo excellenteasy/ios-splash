@@ -66,7 +66,6 @@ function getNameForWidth(width) {
 }
 
 module.exports = function (size) {
-	debugger
 	if (!size && size !== '') {
 		return sizes.map(getIconForSize);
 	}
