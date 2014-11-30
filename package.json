@@ -21,7 +21,7 @@
   "files": [
     "index.js",
     "cli.js",
-    "icons.json"
+    "sizes.json"
   ],
   "keywords": [
     "cli",
