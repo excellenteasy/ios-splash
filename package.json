@@ -1,0 +1,40 @@
+{
+  "name": "ios-icons",
+  "version": "1.0.0",
+  "description": "Get iOS icons: files names and sizes",
+  "license": "MIT",
+  "repository": "excellenteasy/ios-icons",
+  "bin": {
+    "ios-icons": "cli.js"
+  },
+  "author": {
+    "name": "David Pfahler",
+    "email": "david@excellenteasy.com",
+    "url": "http://excellenteasy.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "icons.json"
+  ],
+  "keywords": [
+    "cli",
+    "bin",
+    "icon",
+    "ios",
+    "cordova",
+    "phonegap"
+  ],
+  "dependencies": {
+    "minimist": "^0.2.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
