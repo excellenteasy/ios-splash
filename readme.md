@@ -1,4 +1,7 @@
-# ios-icons [![Build Status](https://travis-ci.org/excellenteasy/ios-icons.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-icons)
+# ios-icons 
+[![Build Status](https://travis-ci.org/excellenteasy/ios-icons.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-icons)
+[![Dependency Status](https://david-dm.org/excellenteasy/ios-icons.svg)](https://david-dm.org/excellenteasy/ios-icons)
+[![devDependency Status](https://david-dm.org/excellenteasy/ios-icons/dev-status.svg)](https://david-dm.org/excellenteasy/ios-icons#info=devDependencies)
 
 > Get iOS icon file names and sizes
 
