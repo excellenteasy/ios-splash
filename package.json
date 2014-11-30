@@ -35,6 +35,6 @@
     "minimist": "^1.1.0"
   },
   "devDependencies": {
-    "ava": "0.0.4"
+    "tape": "^3.0.3"
   }
 }
