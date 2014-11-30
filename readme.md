@@ -1,6 +1,6 @@
 # ios-icons [![Build Status](https://travis-ci.org/excellenteasy/ios-icons.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-icons)
 
-> Get iOS icons: files names and sizes
+> Get iOS icon file names and sizes
 
 The default icon file names and required sizes for iOS are derived from a [JSON file](sizes.json). This information is useful, for example, when you want to generate icons with the required sizes or to create a [`config.xml`](http://docs.phonegap.com/en/3.5.0/config_ref_images.md.html) file for a PhoneGap/Cordova project.
 

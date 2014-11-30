@@ -1,7 +1,7 @@
 {
   "name": "ios-icons",
   "version": "1.0.0",
-  "description": "Get iOS icons: files names and sizes",
+  "description": "Get iOS icon file names and sizes",
   "license": "MIT",
   "repository": "excellenteasy/ios-icons",
   "bin": {
