@@ -63,10 +63,10 @@ $ npm install --global ios-icons
 $ ios-icons --help
 
 Examples:
-	$ ios-icons
+	$ ios-icons --json
 	[ { name: 'icon-60@3x.png', width: 180 }, { name: 'icon-60.png', width: 60 }, ... ]
 
-	$ ios-icons --size 60
+	$ ios-icons --json --size 60
 	{ name: 'icon-40.png', width: 40 }
 
 	$ ios-icons --size 60@3x

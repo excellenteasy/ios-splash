@@ -9,99 +9,99 @@ test('returns all icons in array', function (t) {
 	t.equal(icons.length, 15, '15 icons returned');
 });
 
-test('returns icon for width 60 as Number', function (t) {
+test('returns icon for size 60 as Number', function (t) {
 	t.plan(2);
-	var icon = iosIcons(60);
+	var icon = iosIcons({size: 60});
 	t.ok(icon.name === 'icon-60.png');
 	t.ok(icon.width === 60);
 });
 
-test('returns icon for width 60 as String', function (t) {
+test('returns icon for size 60 as String', function (t) {
 	t.plan(2);
-	var icon = iosIcons('60');
+	var icon = iosIcons({size: '60'});
 	t.ok(icon.name === 'icon-60.png');
 	t.ok(icon.width === 60);
 });
 
-test('returns icon for width 120', function (t) {
+test('returns icon for size 120', function (t) {
 	t.plan(2);
-	var icon = iosIcons(120);
+	var icon = iosIcons({size: 120});
 	t.ok(icon.name === 'icon-60@2x.png');
 	t.ok(icon.width === 120);
 });
 
-test('returns icon for width 60@2x', function (t) {
+test('returns icon for size 60@2x', function (t) {
 	t.plan(2);
-	var icon = iosIcons('60@2x');
+	var icon = iosIcons({size: '60@2x'});
 	t.ok(icon.name === 'icon-60@2x.png');
 	t.ok(icon.width === 120);
 });
 
-test('returns icon for width 60@3x', function (t) {
+test('returns icon for size 60@3x', function (t) {
 	t.plan(2);
-	var icon = iosIcons('60@3x');
+	var icon = iosIcons({size: '60@3x'});
 	t.ok(icon.name === 'icon-60@3x.png');
 	t.ok(icon.width === 180);
 });
 
 test('returns icon for empty string with width 57', function (t) {
 	t.plan(2);
-	var icon = iosIcons('');
+	var icon = iosIcons({size: ''});
 	t.ok(icon.name === 'icon.png');
 	t.ok(icon.width === 57);
 });
 
-test('returns icon for width 57 as Number', function (t) {
+test('returns icon for size 57 as Number', function (t) {
 	t.plan(2);
-	var icon = iosIcons(57);
+	var icon = iosIcons({size: 57});
 	t.ok(icon.name === 'icon.png');
 	t.ok(icon.width === 57);
 });
 
-test('returns icon for width 57 as String', function (t) {
+test('returns icon for size 57 as String', function (t) {
 	t.plan(2);
-	var icon = iosIcons('57');
+	var icon = iosIcons({size: '57'});
 	t.ok(icon.name === 'icon.png');
 	t.ok(icon.width === 57);
 });
 
 test('returns icon for @2x', function (t) {
 	t.plan(2);
-	var icon = iosIcons('@2x');
+	var icon = iosIcons({size: '@2x'});
 	t.ok(icon.name === 'icon@2x.png');
 	t.ok(icon.width === 114);
 });
 
-test('returns icon for width 114 as Number', function (t) {
+test('returns icon for size 114 as Number', function (t) {
 	t.plan(2);
-	var icon = iosIcons(114);
+	var icon = iosIcons({size: 114});
 	t.ok(icon.name === 'icon@2x.png');
 	t.ok(icon.width === 114);
 });
 
-test('returns icon for width 114 as String', function (t) {
+test('returns icon for size 114 as String', function (t) {
 	t.plan(2);
-	var icon = iosIcons('114');
+	var icon = iosIcons({size: '114'});
 	t.ok(icon.name === 'icon@2x.png');
 	t.ok(icon.width === 114);
 });
 
-test('returns null for width 123', function (t) {
+test('returns null for size 123', function (t) {
 	t.plan(1);
-	var icon = iosIcons(123);
+	var icon = iosIcons({size: 123});
 	t.ok(icon === null);
 });
 
-test('returns icon for width 29 as small', function (t) {
+test('returns icon for size 29 as small', function (t) {
 	t.plan(2);
-	var icon = iosIcons(29);
+	var icon = iosIcons({size: 29});
 	t.ok(icon.name === 'icon-small.png');
 	t.ok(icon.width === 29);
 });
 
-test('returns icon for width 58 as small@2x', function (t) {
+test('returns icon for size 58 as small@2x', function (t) {
 	t.plan(2);
-	var icon = iosIcons(58);
+	var icon = iosIcons({size: 58});
 	t.ok(icon.name === 'icon-small@2x.png');
 	t.ok(icon.width === 58);
 });
