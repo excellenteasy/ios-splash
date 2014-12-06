@@ -1,7 +1,7 @@
 {
   "name": "ios-icons",
   "version": "1.0.2",
-  "description": "Get iOS icon file names and sizes",
+  "description": "Get iOS icon file names and dimensions (width)",
   "license": "MIT",
   "repository": "excellenteasy/ios-icons",
   "bin": {
@@ -21,7 +21,7 @@
   "files": [
     "index.js",
     "cli.js",
-    "sizes.json"
+    "icons.json"
   ],
   "keywords": [
     "cli",

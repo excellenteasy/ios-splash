@@ -1,10 +1,14 @@
 'use strict'
 var icons = require('./icons.json')
+var idRegEx = /^icon-?(.*)\.png$/
 var widths = icons.map(function(icon) {
   return icon.width
 })
+var ids = icons.map(function(icon) {
+  return icon.name.match(idRegEx)[1]
+})
 var names = icons.map(function(icon) {
-  return icon.name.match(/^icon-?(.*)\.png$/)[1]
+  return icon.name
 })
 
 function getIconForSize(size) {
@@ -22,10 +26,14 @@ function getWidthForSize(size) {
     return size
   }
   var width = Number(size)
-  if (isNaN(width) || size === '') {
-    return widths[names.indexOf(size)]
+  if (!isNaN(width) && size !== '') {
+    return width
   }
-  return width
+  width = widths[ids.indexOf(size)]
+  if (width) {
+    return width
+  }
+  return widths[ids.indexOf(size.match(idRegEx)[1])]
 }
 
 module.exports = function(options) {
@@ -37,6 +45,6 @@ module.exports = function(options) {
   return getIconForSize(size)
 }
 
-exports.icons = icons
-exports.getIconForSize = getIconForSize
-exports.getWidthForSize = getWidthForSize
+module.exports.icons = icons
+module.exports.getIconForSize = getIconForSize
+module.exports.getWidthForSize = getWidthForSize

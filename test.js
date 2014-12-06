@@ -105,3 +105,17 @@ test('returns icon for size 58 as small@2x', function (t) {
 	t.ok(icon.name === 'icon-small@2x.png');
 	t.ok(icon.width === 58);
 });
+
+test('returns icon for file name icon-small@2x.png', function (t) {
+  t.plan(2);
+  var icon = iosIcons({size: 'icon-small@2x.png'});
+  t.ok(icon.name === 'icon-small@2x.png');
+  t.ok(icon.width === 58);
+});
+
+test('returns icon for file name icon.png', function (t) {
+  t.plan(2);
+  var icon = iosIcons({size: 'icon.png'});
+  t.ok(icon.name === 'icon.png');
+  t.ok(icon.width === 57);
+});

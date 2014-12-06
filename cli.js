@@ -5,46 +5,52 @@ var pkg = require('./package.json')
 var icons = require('./')
 
 function help() {
-	console.log([
-		pkg.description,
-		'',
-		'Example',
-		'  $ ios-icons',
-		"  [ { name: 'icon-60@3x.png', width: 180 }, { name: 'icon-60.png', width: 60 }, ... ]"
-	].join('\n'))
+  console.log([
+    pkg.description,
+    '',
+    'Use `--format json` to set output to JSON.',
+    'Get specifc icon by size or name by using `--size`.',
+    '',
+    'Examples:',
+    '  $ ios-icons --size 80',
+    '  icon-40@2x.png,80',
+    '',
+    '  $ ios-icons --size 80 --format json',
+    '  {"name":"icon-40@2x.png","width":80}',
+    '',
+    '  $ ios-icons --size small',
+    '  icon-small.png,29'
+  ].join('\n'))
 }
 
-function makeLog(icons, options) {
-	var log = []
-	if (!icons.length){
-		icons = [icons]
-	}
-	icons.each(function(icon) {
-		if (options.json) {
-			if (options.width) {
-				return log.push(icon)
-			}
-			return log.push({
-				name: icon.name
-			})
-		}
-		var line = icon.name
-		if (options.width) {
-			line += ',' + icon.width
-		}
-		log.push(line)
-	})
-	return options.json ? log : log.join('\n')
+if (argv.help || argv.h) {
+  help()
+  return
 }
 
-if (argv.help) {
-	help()
-	return
+if (argv.version || argv.v) {
+  console.log(pkg.version)
+  return
 }
 
-if (argv.version) {
-	console.log(pkg.version)
-	return
+function formatLog(icons, argv) {
+  var format = (argv.format || 'csv').toLowerCase()
+  if (format === 'json') {
+    return JSON.stringify(icons)
+  }
+  if (!Array.isArray(icons)) {
+    icons = [icons]
+  }
+  return icons.map(function(icon) {
+    return icon.name + ',' + icon.width
+  }).join('\n')
 }
 
-console.log(makeLog(icons(argv.size || argv.s), argv))
+var options = {
+  size: argv.size || argv.s
+}
+
+var output = icons(options)
+if (output) {
+  console.log(formatLog(output, argv))
+}
