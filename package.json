@@ -1,7 +1,7 @@
 {
   "name": "ios-splash",
   "version": "1.0.0",
-  "description": "Get iOS splash screen files names and sizes",
+  "description": "Get iOS splash screen files names and dimensions",
   "license": "MIT",
   "repository": "excellenteasy/ios-splash",
   "bin": {
@@ -26,7 +26,8 @@
   "keywords": [
     "cli",
     "bin",
-    "icon",
+    "splash",
+    "screen",
     "ios",
     "cordova",
     "phonegap"
