@@ -1,24 +1,30 @@
 'use strict'
-var icons = require('./icons.json')
-var idRegEx = /^icon-?(.*)\.png$/
-var widths = icons.map(function(icon) {
-  return icon.width
+var splash = require('./splash.json')
+var idRegEx = /^Default-?(.*)\.png$/
+var widths = splash.map(function(image) {
+  return image.width
 })
-var ids = icons.map(function(icon) {
-  return icon.name.match(idRegEx)[1]
+var heights = splash.map(function(image) {
+  return image.height
 })
-var names = icons.map(function(icon) {
-  return icon.name
+var ids = splash.map(function(image) {
+  return image.name.match(idRegEx)[1]
+})
+var names = splash.map(function(image) {
+  return image.name
 })
 
-function getIconForSize(size) {
-  var width = getWidthForSize(size)
-
-  if (!width) {
-    return null
+function getSplashForSize(width, height) {
+  if (width) {
+    var width = getWidthForSize(width)
+    if (!width) {
+      return null
+    }
+    return splash[widths.indexOf(width)] || null
   }
 
-  return icons[widths.indexOf(width)] || null
+  var height = Number(height)
+  return splash[heights.indexOf(height)] || null
 }
 
 function getWidthForSize(size) {
@@ -33,18 +39,25 @@ function getWidthForSize(size) {
   if (width) {
     return width
   }
-  return widths[ids.indexOf(size.match(idRegEx)[1])]
+  var id = size.match(idRegEx)
+  if (id && id[1]) {
+    return widths[ids.indexOf(id[1])]
+  }
+
+  return null
 }
 
 module.exports = function(options) {
   options = options || {}
   var size = options.size
-  if (!size && size !== '') {
-    return icons
+  var width = options.width
+  var height = options.height
+  if (!width && !height && !size) {
+    return splash
   }
-  return getIconForSize(size)
+  return getSplashForSize(width || size, height)
 }
 
-module.exports.icons = icons
-module.exports.getIconForSize = getIconForSize
+module.exports.splash = splash
+module.exports.getSplashForSize = getSplashForSize
 module.exports.getWidthForSize = getWidthForSize

@@ -2,24 +2,21 @@
 'use strict'
 var argv = require('minimist')(process.argv.slice(2))
 var pkg = require('./package.json')
-var icons = require('./')
+var splash = require('./')
 
 function help() {
   console.log([
     pkg.description,
     '',
     'Use `--format json` to set output to JSON.',
-    'Get specifc icon by size or name by using `--size`.',
+    'Get specifc splash by width, height or name by using `--width`, `--height` or `--size`.',
     '',
     'Examples:',
-    '  $ ios-icons --size 80',
-    '  icon-40@2x.png,80',
+    '  $ ios-splash --width 320',
+    '  Default~iphone.png,320,480',
     '',
-    '  $ ios-icons --size 80 --format json',
-    '  {"name":"icon-40@2x.png","width":80}',
-    '',
-    '  $ ios-icons --size small',
-    '  icon-small.png,29'
+    '  $ ios-splash --size "~iphone" --format json',
+    '  {"name":"Default~iphone.png","width":320,"height":480}'
   ].join('\n'))
 }
 
@@ -33,24 +30,26 @@ if (argv.version || argv.v) {
   return
 }
 
-function formatLog(icons, argv) {
+function formatLog(splash, argv) {
   var format = (argv.format || 'csv').toLowerCase()
   if (format === 'json') {
-    return JSON.stringify(icons)
+    return JSON.stringify(splash)
   }
-  if (!Array.isArray(icons)) {
-    icons = [icons]
+  if (!Array.isArray(splash)) {
+    splash = [splash]
   }
-  return icons.map(function(icon) {
-    return icon.name + ',' + icon.width
+  return splash.map(function(image) {
+    return image.name + ',' + image.width + ',' + image.height
   }).join('\n')
 }
 
 var options = {
-  size: argv.size || argv.s
+  size: argv.size || argv.s,
+  width: argv.width || argv.w,
+  height: argv.height || argv.h
 }
 
-var output = icons(options)
+var output = splash(options)
 if (output) {
   console.log(formatLog(output, argv))
 }

@@ -1,121 +1,102 @@
 'use strict';
 var test = require('tape');
-var iosIcons = require('./');
+var splash = require('./');
 
-test('returns all icons in array', function (t) {
-	t.plan(2);
-	var icons = iosIcons();
-	t.ok(Array.isArray(icons), 'returned an array');
-	t.equal(icons.length, 15, '15 icons returned');
-});
-
-test('returns icon for size 60 as Number', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: 60});
-	t.ok(icon.name === 'icon-60.png');
-	t.ok(icon.width === 60);
-});
-
-test('returns icon for size 60 as String', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: '60'});
-	t.ok(icon.name === 'icon-60.png');
-	t.ok(icon.width === 60);
-});
-
-test('returns icon for size 120', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: 120});
-	t.ok(icon.name === 'icon-60@2x.png');
-	t.ok(icon.width === 120);
-});
-
-test('returns icon for size 60@2x', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: '60@2x'});
-	t.ok(icon.name === 'icon-60@2x.png');
-	t.ok(icon.width === 120);
-});
-
-test('returns icon for size 60@3x', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: '60@3x'});
-	t.ok(icon.name === 'icon-60@3x.png');
-	t.ok(icon.width === 180);
-});
-
-test('returns icon for empty string with width 57', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: ''});
-	t.ok(icon.name === 'icon.png');
-	t.ok(icon.width === 57);
-});
-
-test('returns icon for size 57 as Number', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: 57});
-	t.ok(icon.name === 'icon.png');
-	t.ok(icon.width === 57);
-});
-
-test('returns icon for size 57 as String', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: '57'});
-	t.ok(icon.name === 'icon.png');
-	t.ok(icon.width === 57);
-});
-
-test('returns icon for @2x', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: '@2x'});
-	t.ok(icon.name === 'icon@2x.png');
-	t.ok(icon.width === 114);
-});
-
-test('returns icon for size 114 as Number', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: 114});
-	t.ok(icon.name === 'icon@2x.png');
-	t.ok(icon.width === 114);
-});
-
-test('returns icon for size 114 as String', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: '114'});
-	t.ok(icon.name === 'icon@2x.png');
-	t.ok(icon.width === 114);
-});
-
-test('returns null for size 123', function (t) {
-	t.plan(1);
-	var icon = iosIcons({size: 123});
-	t.ok(icon === null);
-});
-
-test('returns icon for size 29 as small', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: 29});
-	t.ok(icon.name === 'icon-small.png');
-	t.ok(icon.width === 29);
-});
-
-test('returns icon for size 58 as small@2x', function (t) {
-	t.plan(2);
-	var icon = iosIcons({size: 58});
-	t.ok(icon.name === 'icon-small@2x.png');
-	t.ok(icon.width === 58);
-});
-
-test('returns icon for file name icon-small@2x.png', function (t) {
+test('returns all splash images in array', function (t) {
   t.plan(2);
-  var icon = iosIcons({size: 'icon-small@2x.png'});
-  t.ok(icon.name === 'icon-small@2x.png');
-  t.ok(icon.width === 58);
+  var images = splash();
+  t.ok(Array.isArray(images), 'returned an array');
+  t.equal(images.length, 10, '10 images returned');
 });
 
-test('returns icon for file name icon.png', function (t) {
-  t.plan(2);
-  var icon = iosIcons({size: 'icon.png'});
-  t.ok(icon.name === 'icon.png');
-  t.ok(icon.width === 57);
+test('returns splash image for size 320 as Number', function (t) {
+  t.plan(3);
+  var image = splash({size: 320});
+  t.ok(image.name === 'Default~iphone.png');
+  t.ok(image.width === 320);
+  t.ok(image.height === 480);
+});
+
+test('returns splash image for width 640 as Number', function (t) {
+  t.plan(3);
+  var image = splash({width: '640'});
+  t.ok(image.name === 'Default@2x~iphone.png');
+  t.ok(image.width === 640);
+  t.ok(image.height === 960);
+});
+
+test('returns splash image for height 1024 as Number', function (t) {
+  t.plan(3);
+  var image = splash({height: 1024});
+  t.ok(image.name === 'Default-Portrait~ipad.png');
+  t.ok(image.width === 768);
+  t.ok(image.height === 1024);
+});
+
+test('returns splash image for size 1024 as String', function (t) {
+  t.plan(3);
+  var image = splash({size: '1024'});
+  t.ok(image.name === 'Default-Landscape~ipad.png');
+  t.ok(image.width === 1024);
+  t.ok(image.height === 768);
+});
+
+test('returns splash image for width 2048 as String', function (t) {
+  t.plan(3);
+  var image = splash({width: '2048'});
+  t.ok(image.name === 'Default-Landscape@2x~ipad.png');
+  t.ok(image.width === 2048);
+  t.ok(image.height === 1536);
+});
+
+test('returns splash image for height 1136 as String', function (t) {
+  t.plan(3);
+  var image = splash({height: '1136'});
+  t.ok(image.name === 'Default-568h@2x~iphone.png');
+  t.ok(image.width === 640);
+  t.ok(image.height === 1136);
+});
+
+test('returns splash image for size 667h', function (t) {
+  t.plan(3);
+  var image = splash({size: '667h'});
+  t.ok(image.name === 'Default-667h.png');
+  t.ok(image.width === 750);
+  t.ok(image.height === 1334);
+});
+
+test('returns splash image for size Landscape-736h', function (t) {
+  t.plan(3);
+  var image = splash({size: 'Landscape-736h'});
+  t.ok(image.name === 'Default-Landscape-736h.png');
+  t.ok(image.width === 2208);
+  t.ok(image.height === 1242);
+});
+
+test('returns splash image for size @2x~iphone', function (t) {
+  t.plan(3);
+  var image = splash({size: '@2x~iphone'});
+  t.ok(image.name === 'Default@2x~iphone.png');
+  t.ok(image.width === 640);
+  t.ok(image.height === 960);
+});
+
+test('returns splash image for width 320, prioritizing over size', function (t) {
+  t.plan(3);
+  var image = splash({size: "@2x~iphone.png", width: 320});
+  t.ok(image.name === 'Default~iphone.png');
+  t.ok(image.width === 320);
+  t.ok(image.height === 480);
+});
+
+test('returns null for width 1234', function (t) {
+  t.plan(1);
+  var image = splash({width: 1234});
+  t.ok(image === null);
+});
+
+test('returns null for size @3x-foo', function (t) {
+  t.plan(1);
+  var image = splash({size: '@3x-foo'});
+  t.ok(image === null);
 });

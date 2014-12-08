@@ -1,7 +1,7 @@
-# ios-icons 
-[![Build Status](https://travis-ci.org/excellenteasy/ios-icons.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-icons)
-[![Dependency Status](https://david-dm.org/excellenteasy/ios-icons.svg)](https://david-dm.org/excellenteasy/ios-icons)
-[![devDependency Status](https://david-dm.org/excellenteasy/ios-icons/dev-status.svg)](https://david-dm.org/excellenteasy/ios-icons#info=devDependencies)
+# ios-splash 
+[![Build Status](https://travis-ci.org/excellenteasy/ios-splash.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-splash)
+[![Dependency Status](https://david-dm.org/excellenteasy/ios-splash.svg)](https://david-dm.org/excellenteasy/ios-splash)
+[![devDependency Status](https://david-dm.org/excellenteasy/ios-splash/dev-status.svg)](https://david-dm.org/excellenteasy/ios-splash#info=devDependencies)
 
 > Get iOS icon file names and dimensions (width)
 
@@ -11,14 +11,14 @@ The default icon file names and required sizes for iOS are listed in a [JSON fil
 ## Install
 
 ```sh
-$ npm install --save ios-icons
+$ npm install --save ios-splash
 ```
 
 
 ## Usage
 
 ```js
-var icons = require('ios-icons');
+var icons = require('ios-splash');
 
 icons();
 //=> [{name: 'icon-60@3x.png', width: 180}, {name: 'icon-60.png', width: 60, ...}]
@@ -55,23 +55,23 @@ icons({size: "60@3x"});
 
 
 ## CLI
-> ios-icons logs to stdout in comma-separated values format (csv) by default so you can easy pipe to other commands in UNIX systems.
+> ios-splash logs to stdout in comma-separated values format (csv) by default so you can easy pipe to other commands in UNIX systems.
 
 ```sh
-$ npm install --global ios-icons
+$ npm install --global ios-splash
 ```
 
 ```sh
-$ ios-icons --help
+$ ios-splash --help
 
 Examples:
-    $ ios-icons --format json --size 60
+    $ ios-splash --format json --size 60
     { name: 'icon-40.png', width: 40 }
 
-    $ ios-icons --size 60@3x
+    $ ios-splash --size 60@3x
     icon-60@3x.png,180
 
-    $ ios-icons
+    $ ios-splash
     icon-60@3x.png,180
     icon-60.png,60
     icon-60@2x.png,120
@@ -88,7 +88,7 @@ Examples:
     icon-50.png,50
     icon-50@2x.png,100
 
-    $ ios-icons --format json
+    $ ios-splash --format json
     [{"name":"icon-60@3x.png","width":180},{"name":"icon-60.png","width":60},{"name":"icon-60@2x.png","width":120},{"name":"icon-76.png","width":76},{"name":"icon-76@2x.png","width":152},{"name":"icon-40.png","width":40},{"name":"icon-40@2x.png","width":80},{"name":"icon.png","width":57},{"name":"icon@2x.png","width":114},{"name":"icon-72.png","width":72},{"name":"icon-72@2x.png","width":144},{"name":"icon-small.png","width":29},{"name":"icon-small@2x.png","width":58},{"name":"icon-50.png","width":50},{"name":"icon-50@2x.png","width":100}]
 ```
 

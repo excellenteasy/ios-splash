@@ -1,11 +1,11 @@
 {
-  "name": "ios-icons",
-  "version": "2.0.0",
-  "description": "Get iOS icon file names and dimensions (width)",
+  "name": "ios-splash",
+  "version": "1.0.0",
+  "description": "Get iOS splash screen files names and sizes",
   "license": "MIT",
-  "repository": "excellenteasy/ios-icons",
+  "repository": "excellenteasy/ios-splash",
   "bin": {
-    "ios-icons": "cli.js"
+    "ios-splash": "cli.js"
   },
   "author": {
     "name": "David Pfahler",
@@ -21,7 +21,7 @@
   "files": [
     "index.js",
     "cli.js",
-    "icons.json"
+    "splash.json"
   ],
   "keywords": [
     "cli",
