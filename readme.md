@@ -3,9 +3,9 @@
 [![Dependency Status](https://david-dm.org/excellenteasy/ios-splash.svg)](https://david-dm.org/excellenteasy/ios-splash)
 [![devDependency Status](https://david-dm.org/excellenteasy/ios-splash/dev-status.svg)](https://david-dm.org/excellenteasy/ios-splash#info=devDependencies)
 
-> Get iOS icon file names and dimensions (width)
+> Get iOS splash screen files names and dimensions
 
-The default icon file names and required sizes for iOS are listed in a [JSON file](icons.json). This information is useful, for example, when you want to generate icons with the required sizes or to create a [`config.xml`](http://docs.phonegap.com/en/3.5.0/config_ref_images.md.html) file for a PhoneGap/Cordova project or if you just need to create the icons for your iOS project from one source icon.
+The default splash screen image file names and required sizes for iOS are listed in a [JSON file](splash.json). This information is useful, for example, when you want to generate splash screen images with the required dimensons and/or to create a [`config.xml`](http://docs.phonegap.com/en/3.5.0/config_ref_images.md.html) file for a PhoneGap/Cordova project or if you just need to create the splash screen images for your iOS project from one source image.
 
 
 ## Install
@@ -18,39 +18,44 @@ $ npm install --save ios-splash
 ## Usage
 
 ```js
-var icons = require('ios-splash');
+var splash = require('ios-splash');
 
-icons();
-//=> [{name: 'icon-60@3x.png', width: 180}, {name: 'icon-60.png', width: 60, ...}]
+splash();
+//=> [{"name":"Default~iphone.png","width":320,"height":480}, ...]
 
-icons({size: '72'})
-//=> {name: 'icon-72.png', width: 72}
+splash({width: 640})
+//=> {"name":"Default@2x~iphone.png","width":640,"height":960}
 
-icons({size: 'small'})
-//=> {name: 'icon-small.png', width: 29}
+splash({height: 2048})
+//=> {"name":"Default-Landscape@2x~ipad.png","width":2048,"height":1536}
+
+splash({size: '~iphone'})
+//=> {"name":"Default~iphone.png","width":320,"height":480}
 ```
 
 
 ## API
 
-### icons()
+### splash()
 
-Returns an array of icons, each icon being represented by an object with `name` and `width` properties.
+Returns an array of splash screen images, each image being represented by an object with `name`, `width` and `height` properties.
 
-> Notice that icons are always squares, so no `height` property is provided.
-
-### icons(options)
+### splash(options)
 #### options
 
-Only option for now is `size`, which can be either a `Number` or `String` value. If it is a `Number`, it represents the width in pixels. If it is a `String`, you can use `"@2x"` or `"@3x"` notation to refer to a certain size or the complete file name, e.g. `icon-small.png`.
+`size`: can be either a `Number` or `String` value. If it is a `Number`, it represents the width in pixels. If it is a `String`, you can use `"~iphone"` or `"Landscape~ipad"` notation to refer to a certain size or the complete file name, e.g. `Default-Landscape~ipad.png`.
 
-Returns icon object for that size or `null`.
+`width`: should be a `Number` value. If this option is present, it supresses the `size` and `height` options.
+
+`height`: should be a `Number` value.
+
+Returns icon object for that size, width or height or `null`.
 
 For example:
 
 ```js
-icons({size: "60@3x"});
-// ==> {name: "icon-60@3x.png", width: 180}
+icons({size: "Landscape~ipad"});
+// ==> {"name":"Default-Landscape~ipad.png","width":1024,"height":768}
 ```
 
 
@@ -65,31 +70,26 @@ $ npm install --global ios-splash
 $ ios-splash --help
 
 Examples:
-    $ ios-splash --format json --size 60
-    { name: 'icon-40.png', width: 40 }
+    $ ios-splash --width 320 --format json
+    {"name":"Default~iphone.png","width":320,"height":480}
 
-    $ ios-splash --size 60@3x
-    icon-60@3x.png,180
+    $ ios-splash --size Landscape~ipad
+    Default-Landscape~ipad.png,1024,768
 
     $ ios-splash
-    icon-60@3x.png,180
-    icon-60.png,60
-    icon-60@2x.png,120
-    icon-76.png,76
-    icon-76@2x.png,152
-    icon-40.png,40
-    icon-40@2x.png,80
-    icon.png,57
-    icon@2x.png,114
-    icon-72.png,72
-    icon-72@2x.png,144
-    icon-small.png,29
-    icon-small@2x.png,58
-    icon-50.png,50
-    icon-50@2x.png,100
+    Default~iphone.png,320,480
+    Default@2x~iphone.png,640,960
+    Default-Portrait~ipad.png,768,1024
+    Default-Portrait@2x~ipad.png,1536,2048
+    Default-Landscape~ipad.png,1024,768
+    Default-Landscape@2x~ipad.png,2048,1536
+    Default-568h@2x~iphone.png,640,1136
+    Default-667h.png,750,1334
+    Default-736h.png,1242,2208
+    Default-Landscape-736h.png,2208,1242
 
     $ ios-splash --format json
-    [{"name":"icon-60@3x.png","width":180},{"name":"icon-60.png","width":60},{"name":"icon-60@2x.png","width":120},{"name":"icon-76.png","width":76},{"name":"icon-76@2x.png","width":152},{"name":"icon-40.png","width":40},{"name":"icon-40@2x.png","width":80},{"name":"icon.png","width":57},{"name":"icon@2x.png","width":114},{"name":"icon-72.png","width":72},{"name":"icon-72@2x.png","width":144},{"name":"icon-small.png","width":29},{"name":"icon-small@2x.png","width":58},{"name":"icon-50.png","width":50},{"name":"icon-50@2x.png","width":100}]
+    [{"name":"Default~iphone.png","width":320,"height":480},{"name":"Default@2x~iphone.png","width":640,"height":960},{"name":"Default-Portrait~ipad.png","width":768,"height":1024},{"name":"Default-Portrait@2x~ipad.png","width":1536,"height":2048},{"name":"Default-Landscape~ipad.png","width":1024,"height":768},{"name":"Default-Landscape@2x~ipad.png","width":2048,"height":1536},{"name":"Default-568h@2x~iphone.png","width":640,"height":1136},{"name":"Default-667h.png","width":750,"height":1334},{"name":"Default-736h.png","width":1242,"height":2208},{"name":"Default-Landscape-736h.png","width":2208,"height":1242}]
 ```
 
 
