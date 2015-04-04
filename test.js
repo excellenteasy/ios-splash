@@ -13,81 +13,81 @@ test('returns all splash images in array', function (t) {
 test('returns splash image for size 320 as Number', function (t) {
   t.plan(3)
   var image = splash({size: 320})
-  t.ok(image.name === 'Default~iphone.png')
-  t.ok(image.width === 320)
-  t.ok(image.height === 480)
+  t.equal(image.name, 'Default~iphone.png', 'image has correct name')
+  t.equal(image.width, 320, 'image has correct width')
+  t.equal(image.height, 480, 'image has correct height')
 })
 
 test('returns splash image for width 640 as Number', function (t) {
   t.plan(3)
   var image = splash({width: '640'})
-  t.ok(image.name === 'Default@2x~iphone.png')
-  t.ok(image.width === 640)
-  t.ok(image.height === 960)
+  t.equal(image.name, 'Default@2x~iphone.png', 'image has correct name')
+  t.equal(image.width, 640, 'image has correct width')
+  t.equal(image.height, 960, 'image has correct height')
 })
 
 test('returns splash image for height 1024 as Number', function (t) {
   t.plan(3)
   var image = splash({height: 1024})
-  t.ok(image.name === 'Default-Portrait~ipad.png')
-  t.ok(image.width === 768)
-  t.ok(image.height === 1024)
+  t.equal(image.name, 'Default-Portrait~ipad.png', 'image has correct name')
+  t.equal(image.width, 768, 'image has correct width')
+  t.equal(image.height, 1024, 'image has correct height')
 })
 
 test('returns splash image for size 1024 as String', function (t) {
   t.plan(3)
   var image = splash({size: '1024'})
-  t.ok(image.name === 'Default-Landscape~ipad.png')
-  t.ok(image.width === 1024)
-  t.ok(image.height === 768)
+  t.equal(image.name, 'Default-Landscape~ipad.png', 'image has correct name')
+  t.equal(image.width, 1024, 'image has correct width')
+  t.equal(image.height, 768, 'image has correct height')
 })
 
 test('returns splash image for width 2048 as String', function (t) {
   t.plan(3)
   var image = splash({width: '2048'})
-  t.ok(image.name === 'Default-Landscape@2x~ipad.png')
-  t.ok(image.width === 2048)
-  t.ok(image.height === 1536)
+  t.equal(image.name, 'Default-Landscape@2x~ipad.png', 'image has correct name')
+  t.equal(image.width, 2048, 'image has correct width')
+  t.equal(image.height, 1536, 'image has correct height')
 })
 
 test('returns splash image for height 1136 as String', function (t) {
   t.plan(3)
   var image = splash({height: '1136'})
-  t.ok(image.name === 'Default-568h@2x~iphone.png')
-  t.ok(image.width === 640)
-  t.ok(image.height === 1136)
+  t.equal(image.name, 'Default-568h@2x~iphone.png', 'image has correct name')
+  t.equal(image.width, 640, 'image has correct width')
+  t.equal(image.height, 1136, 'image has correct height')
 })
 
 test('returns splash image for size 667h', function (t) {
   t.plan(3)
   var image = splash({size: '667h'})
-  t.ok(image.name === 'Default-667h.png')
-  t.ok(image.width === 750)
-  t.ok(image.height === 1334)
+  t.equal(image.name, 'Default-667h.png', 'image has correct name')
+  t.equal(image.width, 750, 'image has correct width')
+  t.equal(image.height, 1334, 'image has correct height')
 })
 
 test('returns splash image for size Landscape-736h', function (t) {
   t.plan(3)
   var image = splash({size: 'Landscape-736h'})
-  t.ok(image.name === 'Default-Landscape-736h.png')
-  t.ok(image.width === 2208)
-  t.ok(image.height === 1242)
+  t.equal(image.name, 'Default-Landscape-736h.png', 'image has correct name')
+  t.equal(image.width, 2208, 'image has correct width')
+  t.equal(image.height, 1242, 'image has correct height')
 })
 
 test('returns splash image for size @2x~iphone', function (t) {
   t.plan(3)
   var image = splash({size: '@2x~iphone'})
-  t.ok(image.name === 'Default@2x~iphone.png')
-  t.ok(image.width === 640)
-  t.ok(image.height === 960)
+  t.equal(image.name, 'Default@2x~iphone.png', 'image has correct name')
+  t.equal(image.width, 640, 'image has correct width')
+  t.equal(image.height, 960, 'image has correct height')
 })
 
 test('returns splash image for width 320, prioritizing over size', function (t) {
   t.plan(3)
   var image = splash({size: '@2x~iphone.png', width: 320})
-  t.ok(image.name === 'Default~iphone.png')
-  t.ok(image.width === 320)
-  t.ok(image.height === 480)
+  t.equal(image.name, 'Default~iphone.png', 'image has correct name')
+  t.equal(image.width, 320, 'image has correct width')
+  t.equal(image.height, 480, 'image has correct height')
 })
 
 test('returns null for width 1234', function (t) {
