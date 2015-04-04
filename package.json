@@ -2,25 +2,27 @@
   "name": "ios-splash",
   "version": "1.0.0",
   "description": "Get iOS splash screen files names and dimensions",
-  "license": "MIT",
-  "repository": "excellenteasy/ios-splash",
-  "bin": {
-    "ios-splash": "cli.js"
+  "dependencies": {
+    "minimist": "^1.1.0"
   },
-  "author": {
-    "name": "David Pfahler",
-    "email": "david@excellenteasy.com",
-    "url": "http://excellenteasy.com"
+  "devDependencies": {
+    "standard": "^3.3.2",
+    "tape": "^3.0.3"
   },
+  "bin": "./bin/ios-splash.js",
+  "main": "index.js",
+  "author": "David Pfahler <david@excellenteasy.com>",
   "engines": {
-    "node": ">=0.10.0"
+    "iojs": "^1",
+    "node": "^0.10",
+    "npm": "^2"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "standard && node test.js"
   },
   "files": [
     "index.js",
-    "cli.js",
+    "bin/ios-splash.js",
     "splash.json"
   ],
   "keywords": [
@@ -32,10 +34,9 @@
     "cordova",
     "phonegap"
   ],
-  "dependencies": {
-    "minimist": "^1.1.0"
-  },
-  "devDependencies": {
-    "tape": "^3.0.3"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/excellenteasy/ios-splash"
   }
 }
