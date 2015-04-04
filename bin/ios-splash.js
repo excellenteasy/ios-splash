@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 'use strict'
-var argv = require('minimist')(process.argv.slice(2))
+var minimist = require('minimist')
+var argv = minimist(process.argv.slice(2))
 var pkg = require('./package.json')
 var splash = require('./')
 
-function help() {
+function help () {
   console.log([
     pkg.description,
     '',
@@ -20,17 +21,7 @@ function help() {
   ].join('\n'))
 }
 
-if (argv.help || argv.h) {
-  help()
-  return
-}
-
-if (argv.version || argv.v) {
-  console.log(pkg.version)
-  return
-}
-
-function formatLog(splash, argv) {
+function formatLog (splash, argv) {
   var format = (argv.format || 'csv').toLowerCase()
   if (format === 'json') {
     return JSON.stringify(splash)
@@ -38,18 +29,24 @@ function formatLog(splash, argv) {
   if (!Array.isArray(splash)) {
     splash = [splash]
   }
-  return splash.map(function(image) {
+  return splash.map(function (image) {
     return image.name + ',' + image.width + ',' + image.height
   }).join('\n')
 }
 
-var options = {
-  size: argv.size || argv.s,
-  width: argv.width || argv.w,
-  height: argv.height || argv.h
+function cli () {
+  if (argv.help || argv.h) return help()
+
+  if (argv.version || argv.v) return console.log(pkg.version)
+
+  var options = {
+    size: argv.size || argv.s,
+    width: argv.width || argv.w,
+    height: argv.height || argv.h
+  }
+
+  var output = splash(options)
+  if (output) console.log(formatLog(output, argv))
 }
 
-var output = splash(options)
-if (output) {
-  console.log(formatLog(output, argv))
-}
+cli()
