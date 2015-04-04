@@ -1,34 +1,31 @@
 'use strict'
 var splash = require('./splash.json')
 var idRegEx = /^Default-?(.*)\.png$/
-var widths = splash.map(function(image) {
+var widths = splash.map(function (image) {
   return image.width
 })
-var heights = splash.map(function(image) {
+var heights = splash.map(function (image) {
   return image.height
 })
-var ids = splash.map(function(image) {
+var ids = splash.map(function (image) {
   return image.name.match(idRegEx)[1]
 })
-var names = splash.map(function(image) {
-  return image.name
-})
 
-function getSplashForSize(width, height) {
+function getSplashForSize (width, height) {
   if (width) {
-    var width = getWidthForSize(width)
+    width = getWidthForSize(width)
     if (!width) {
       return null
     }
     return splash[widths.indexOf(width)] || null
   }
 
-  var height = Number(height)
+  height = Number(height)
   return splash[heights.indexOf(height)] || null
 }
 
-function getWidthForSize(size) {
-  if ('number' === typeof size) {
+function getWidthForSize (size) {
+  if (typeof size === 'number') {
     return size
   }
   var width = Number(size)
@@ -47,7 +44,7 @@ function getWidthForSize(size) {
   return null
 }
 
-module.exports = function(options) {
+module.exports = function (options) {
   options = options || {}
   var size = options.size
   var width = options.width
