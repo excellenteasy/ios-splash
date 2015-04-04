@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "standard": "^3.3.2",
-    "tape": "^3.0.3"
+    "tape": "^4.0.0"
   },
   "bin": "./bin/ios-splash.js",
   "main": "index.js",
