@@ -1,5 +1,38 @@
 language: node_js
 node_js:
-  - '0.10'
+- iojs-v1
+- "0.12"
+- "0.10"
+sudo: false
+cache:
+  directories:
+  - node_modules
 notifications:
   email: false
+  slack:
+    secure: N96GBz21QrC8hC9WssrPi60hSVgiF6GRcRHNQU0I/vqHn1JlrAuqXLmPtJaGJ3WP89vX8MnVyarw/ULnmsefVbzjLcNNxRtrrLpXvDD3MZdtMmCNKLpKlagiGkXyMEFetAzlPfEoHzWQzZVMq0nG3slbsEQeFbIfxvD/yCPvqTQ=
+before_install:
+- npm i -g npm@^2.0.0
+- npm prune
+before_script:
+- curl -Lo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
+after_success:
+- python travis_after_all.py
+- export $(cat .to_export_back)
+after_failure:
+- python travis_after_all.py
+- export $(cat .to_export_back)
+before_deploy:
+- rm -f travis_after_all.py .to_export_back
+after_script:
+- echo leader=$BUILD_LEADER status=$BUILD_AGGREGATE_STATUS
+deploy:
+  provider: npm
+  email: david@excellenteasy.com
+  skip_cleanup: true
+  api_key:
+    secure: E3W1FcH0PD0QaSLhMjGnCAmdizQBZJlBYUc/TOZqh74gNOkerAxajtYaCLqCIR/qp9iSlbFfvFe/2Fn9GTmjK+v3QGmz6kOu44t+HNYBS2fgKNJG5ibOeW1hRtP6ceChKy1uXK7U3ttWogB+dhhMk1P1WPr1uD9+cIoMH9Q2N/M=
+  on:
+    branch: master
+    repo: excellenteasy/ios-splash
+env: global:GH_TOKEN=c4d321258c51f4efb309a89ac52a05bd49b63a51

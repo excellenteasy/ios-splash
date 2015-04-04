@@ -1,11 +1,12 @@
 {
   "name": "ios-splash",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "Get iOS splash screen files names and dimensions",
   "dependencies": {
     "minimist": "^1.1.0"
   },
   "devDependencies": {
+    "semantic-release": "^3.0.4",
     "standard": "^3.3.2",
     "tape": "^4.0.0"
   },
@@ -18,7 +19,9 @@
     "npm": "^2"
   },
   "scripts": {
-    "test": "standard && node test.js"
+    "test": "standard && node test.js",
+    "prepublish": "semantic-release pre",
+    "postpublish": "semantic-release post"
   },
   "files": [
     "index.js",
