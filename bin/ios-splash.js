@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 'use strict'
 var minimist = require('minimist')
+var pkg = require('../package.json')
+var splash = require('../')
+
 var argv = minimist(process.argv.slice(2))
-var pkg = require('./package.json')
-var splash = require('./')
 
 function help () {
   console.log([
