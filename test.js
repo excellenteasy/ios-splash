@@ -1,6 +1,7 @@
 'use strict'
 var test = require('tape')
 var splash = require('./')
+var exec = require('child_process').exec
 
 test('returns all splash images in array', function (t) {
   t.plan(2)
@@ -99,4 +100,40 @@ test('returns null for size @3x-foo', function (t) {
   t.plan(1)
   var image = splash({size: '@3x-foo'})
   t.ok(image === null)
+})
+
+test('cli returns all splash images as csv', function (t) {
+  t.plan(1)
+  var expected = 'Default~iphone.png,320,480\nDefault@2x~iphone.png,640,960\nDefault-Portrait~ipad.png,768,1024\nDefault-Portrait@2x~ipad.png,1536,2048\nDefault-Landscape~ipad.png,1024,768\nDefault-Landscape@2x~ipad.png,2048,1536\nDefault-568h@2x~iphone.png,640,1136\nDefault-667h.png,750,1334\nDefault-736h.png,1242,2208\nDefault-Landscape-736h.png,2208,1242\n'
+  exec('./bin/ios-splash.js', function (error, stdout, stderr) {
+    var err = error || stderr
+    if (err) {
+      return t.fail('calling cli produced an error: ' + err)
+    }
+    t.equal(stdout, expected)
+  })
+})
+
+test('cli returns correct image for width 320 as csv', function (t) {
+  t.plan(1)
+  var expected = 'Default~iphone.png,320,480\n'
+  exec('./bin/ios-splash.js --width 320', function (error, stdout, stderr) {
+    var err = error || stderr
+    if (err) {
+      return t.fail('calling cli produced an error: ' + err)
+    }
+    t.equal(stdout, expected)
+  })
+})
+
+test('cli returns correct image for size "~iphone" as json', function (t) {
+  t.plan(1)
+  var expected = '{"name":"Default~iphone.png","width":320,"height":480}\n'
+  exec('./bin/ios-splash.js --size ~iphone --format json', function (error, stdout, stderr) {
+    var err = error || stderr
+    if (err) {
+      return t.fail('calling cli produced an error: ' + err)
+    }
+    t.equal(stdout, expected)
+  })
 })
