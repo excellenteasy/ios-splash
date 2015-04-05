@@ -110,7 +110,7 @@ test('cli returns all splash images as csv', function (t) {
     if (err) {
       return t.fail('calling cli produced an error: ' + err)
     }
-    t.equal(stdout, expected)
+    t.equal(stdout, expected, 'cli returned the expected output')
   })
 })
 
@@ -122,7 +122,7 @@ test('cli returns correct image for width 320 as csv', function (t) {
     if (err) {
       return t.fail('calling cli produced an error: ' + err)
     }
-    t.equal(stdout, expected)
+    t.equal(stdout, expected, 'cli returned the expected output')
   })
 })
 
@@ -134,7 +134,7 @@ test('cli returns correct image for size "~iphone" as json', function (t) {
     if (err) {
       return t.fail('calling cli produced an error: ' + err)
     }
-    t.equal(stdout, expected)
+    t.equal(stdout, expected, 'cli returned the expected output')
   })
 })
 
@@ -146,7 +146,7 @@ test('cli returns correct image for size "~iphone" as json with abbreviated flag
     if (err) {
       return t.fail('calling cli produced an error: ' + err)
     }
-    t.equal(stdout, expected)
+    t.equal(stdout, expected, 'cli returned the expected output')
   })
 })
 
@@ -158,7 +158,7 @@ test('cli returns correct image for size "~iphone" as json w/ abbreviated flags'
     if (err) {
       return t.fail('calling cli produced an error: ' + err)
     }
-    t.equal(stdout, expected)
+    t.equal(stdout, expected, 'cli returned the expected output')
   })
 })
 
@@ -170,6 +170,6 @@ test('cli returns correct image for width 320 as csv w/ abbreviated flag', funct
     if (err) {
       return t.fail('calling cli produced an error: ' + err)
     }
-    t.equal(stdout, expected)
+    t.equal(stdout, expected, 'cli returned the expected output')
   })
 })
