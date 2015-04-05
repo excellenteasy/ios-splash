@@ -137,3 +137,39 @@ test('cli returns correct image for size "~iphone" as json', function (t) {
     t.equal(stdout, expected)
   })
 })
+
+test('cli returns correct image for size "~iphone" as json with abbreviated flags', function (t) {
+  t.plan(1)
+  var expected = '{"name":"Default~iphone.png","width":320,"height":480}\n'
+  exec('./bin/ios-splash.js --s ~iphone --for json', function (error, stdout, stderr) {
+    var err = error || stderr
+    if (err) {
+      return t.fail('calling cli produced an error: ' + err)
+    }
+    t.equal(stdout, expected)
+  })
+})
+
+test('cli returns correct image for size "~iphone" as json w/ abbreviated flags', function (t) {
+  t.plan(1)
+  var expected = '{"name":"Default~iphone.png","width":320,"height":480}\n'
+  exec('./bin/ios-splash.js --si ~iphone --fo json', function (error, stdout, stderr) {
+    var err = error || stderr
+    if (err) {
+      return t.fail('calling cli produced an error: ' + err)
+    }
+    t.equal(stdout, expected)
+  })
+})
+
+test('cli returns correct image for width 320 as csv w/ abbreviated flag', function (t) {
+  t.plan(1)
+  var expected = 'Default~iphone.png,320,480\n'
+  exec('./bin/ios-splash.js -w 320', function (error, stdout, stderr) {
+    var err = error || stderr
+    if (err) {
+      return t.fail('calling cli produced an error: ' + err)
+    }
+    t.equal(stdout, expected)
+  })
+})
