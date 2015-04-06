@@ -33,6 +33,7 @@ deploy:
   on:
     branch: master
     repo: excellenteasy/ios-splash
+    condition: "$BUILD_LEADER$BUILD_AGGREGATE_STATUS = YESothers_succeeded"
   api_key:
     secure: SFyySY6zqwpJLXE5ycEC++6a4kWNqOiYxEjazRoFVT6aIxDld1YBO3FirJUzxg8gMNWsK3sQCowqBIYx5hQZjm4lx1NIOTeT0flXULUNNM4teuthoNp+vauQV7SqIo92xy9DoqJc6usSvsj/uzNNJSxi5Wn1LgMd/H5BA0/1XYY=
 env: global:GH_TOKEN=c4d321258c51f4efb309a89ac52a05bd49b63a51
