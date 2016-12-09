@@ -7,7 +7,7 @@ test('returns all splash images in array', function (t) {
   t.plan(2)
   var images = splash()
   t.ok(Array.isArray(images), 'returned an array')
-  t.equal(images.length, 10, '10 images returned')
+  t.equal(images.length, 11, '11 images returned')
 })
 
 test('returns splash image for size 320 as Number', function (t) {
@@ -90,6 +90,14 @@ test('returns splash image for width 320, prioritizing over size', function (t) 
   t.equal(image.height, 480, 'image has correct height')
 })
 
+test('returns storyboard image for width 2732, prioritizing over size', function (t) {
+  t.plan(3)
+  var image = splash({size: 'Default@2x~universal~anyany', width: 2732})
+  t.equal(image.name, 'Default@2x~universal~anyany.png', 'image has correct name')
+  t.equal(image.width, 2732, 'image has correct width')
+  t.equal(image.height, 2732, 'image has correct height')
+})
+
 test('returns null for width 1234', function (t) {
   t.plan(1)
   var image = splash({width: 1234})
@@ -104,7 +112,7 @@ test('returns null for size @3x-foo', function (t) {
 
 test('cli returns all splash images as csv', function (t) {
   t.plan(1)
-  var expected = 'Default~iphone.png,320,480\nDefault@2x~iphone.png,640,960\nDefault-Portrait~ipad.png,768,1024\nDefault-Portrait@2x~ipad.png,1536,2048\nDefault-Landscape~ipad.png,1024,768\nDefault-Landscape@2x~ipad.png,2048,1536\nDefault-568h@2x~iphone.png,640,1136\nDefault-667h.png,750,1334\nDefault-736h.png,1242,2208\nDefault-Landscape-736h.png,2208,1242\n'
+  var expected = 'Default~iphone.png,320,480\nDefault@2x~iphone.png,640,960\nDefault-Portrait~ipad.png,768,1024\nDefault-Portrait@2x~ipad.png,1536,2048\nDefault-Landscape~ipad.png,1024,768\nDefault-Landscape@2x~ipad.png,2048,1536\nDefault-568h@2x~iphone.png,640,1136\nDefault-667h.png,750,1334\nDefault-736h.png,1242,2208\nDefault-Landscape-736h.png,2208,1242\nDefault@2x~universal~anyany.png,2732,2732\n'
   exec('./bin/ios-splash.js', function (error, stdout, stderr) {
     var err = error || stderr
     if (err) {
@@ -142,7 +150,7 @@ test('cli returns correct image for size "~iphone" as json', function (t) {
 
 test('cli returns all splash images as json w/ & w/o abbreviated flags', function (t) {
   t.plan(6)
-  var expected = '[{"name":"Default~iphone.png","width":320,"height":480},{"name":"Default@2x~iphone.png","width":640,"height":960},{"name":"Default-Portrait~ipad.png","width":768,"height":1024},{"name":"Default-Portrait@2x~ipad.png","width":1536,"height":2048},{"name":"Default-Landscape~ipad.png","width":1024,"height":768},{"name":"Default-Landscape@2x~ipad.png","width":2048,"height":1536},{"name":"Default-568h@2x~iphone.png","width":640,"height":1136},{"name":"Default-667h.png","width":750,"height":1334},{"name":"Default-736h.png","width":1242,"height":2208},{"name":"Default-Landscape-736h.png","width":2208,"height":1242}]\n'
+  var expected = '[{"name":"Default~iphone.png","width":320,"height":480},{"name":"Default@2x~iphone.png","width":640,"height":960},{"name":"Default-Portrait~ipad.png","width":768,"height":1024},{"name":"Default-Portrait@2x~ipad.png","width":1536,"height":2048},{"name":"Default-Landscape~ipad.png","width":1024,"height":768},{"name":"Default-Landscape@2x~ipad.png","width":2048,"height":1536},{"name":"Default-568h@2x~iphone.png","width":640,"height":1136},{"name":"Default-667h.png","width":750,"height":1334},{"name":"Default-736h.png","width":1242,"height":2208},{"name":"Default-Landscape-736h.png","width":2208,"height":1242},{"name":"Default@2x~universal~anyany.png","width":2732,"height":2732}]\n'
   exec('./bin/ios-splash.js --format json', function (error, stdout, stderr) {
     var err = error || stderr
     if (err) {
