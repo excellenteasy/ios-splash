@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "semantic-release": "^6.3.2",
-    "standard": "^8.6.0",
+    "standard": "^9.0.2",
     "tape": "^4.0.0"
   },
   "bin": "./bin/ios-splash.js",
