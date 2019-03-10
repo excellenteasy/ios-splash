@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/randytarampi/ios-splash/compare/v2.2.0...v3.0.0) (2019-03-10)
+
+
+### Bug Fixes
+
+* **package:** Since the package updates we no longer support node@4. ([d879a52](https://github.com/randytarampi/ios-splash/commit/d879a52))
+* **travis:** Don't bother caching dependencies. ([b81e454](https://github.com/randytarampi/ios-splash/commit/b81e454))
+
+
+### BREAKING CHANGES
+
+* **package:** Drop support for node 4 and earlier, since `yargs^13.2.2` requires ES6 support.
+
 # [2.2.0](https://github.com/randytarampi/ios-splash/compare/v2.1.2...v2.2.0) (2019-03-10)
 
 
