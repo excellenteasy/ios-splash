@@ -7,7 +7,7 @@ test('returns all splash images in array', function (t) {
   t.plan(2)
   var images = splash()
   t.ok(Array.isArray(images), 'returned an array')
-  t.equal(images.length, 11, '11 images returned')
+  t.equal(images.length, 24, '24 images returned')
 })
 
 test('returns splash image for size 320 as Number', function (t) {
@@ -112,7 +112,7 @@ test('returns null for size @3x-foo', function (t) {
 
 test('cli returns all splash images as csv', function (t) {
   t.plan(1)
-  var expected = 'Default~iphone.png,320,480\nDefault@2x~iphone.png,640,960\nDefault-Portrait~ipad.png,768,1024\nDefault-Portrait@2x~ipad.png,1536,2048\nDefault-Landscape~ipad.png,1024,768\nDefault-Landscape@2x~ipad.png,2048,1536\nDefault-568h@2x~iphone.png,640,1136\nDefault-667h.png,750,1334\nDefault-736h.png,1242,2208\nDefault-Landscape-736h.png,2208,1242\nDefault@2x~universal~anyany.png,2732,2732\n'
+  var expected = 'Default~iphone.png,320,480\nDefault@2x~iphone.png,640,960\nDefault-Portrait~ipad.png,768,1024\nDefault-Portrait@2x~ipad.png,1536,2048\nDefault-Landscape~ipad.png,1024,768\nDefault-Landscape@2x~ipad.png,2048,1536\nDefault-568h@2x~iphone.png,640,1136\nDefault-667h.png,750,1334\nDefault-Landscape-667h.png,1334,750\nDefault-736h.png,1242,2208\nDefault-Landscape-736h.png,2208,1242\nDefault@2x~universal~anyany.png,2732,2732\nDefault-812h.png,1125,2436\nDefault-Landscape-812h.png,2436,1125\nDefault-896h.png,828,1792\nDefault-Landscape-896h.png,1792,828\nDefault-896h@3x.png,1242,2688\nDefault-Landscape-896h@3x.png,2688,1242\nDefault-1112h.png,1668,2224\nDefault-Landscape-1112h.png,2224,1668\nDefault-1194h.png,1668,2388\nDefault-Landscape-1194h.png,2388,1668\nDefault-1366h.png,2048,2732\nDefault-Landscape-1366h.png,2732,2048\n'
   exec('./bin/ios-splash.js', function (error, stdout, stderr) {
     var err = error || stderr
     if (err) {
@@ -150,7 +150,7 @@ test('cli returns correct image for size "~iphone" as json', function (t) {
 
 test('cli returns all splash images as json w/ & w/o abbreviated flags', function (t) {
   t.plan(6)
-  var expected = '[{"name":"Default~iphone.png","width":320,"height":480},{"name":"Default@2x~iphone.png","width":640,"height":960},{"name":"Default-Portrait~ipad.png","width":768,"height":1024},{"name":"Default-Portrait@2x~ipad.png","width":1536,"height":2048},{"name":"Default-Landscape~ipad.png","width":1024,"height":768},{"name":"Default-Landscape@2x~ipad.png","width":2048,"height":1536},{"name":"Default-568h@2x~iphone.png","width":640,"height":1136},{"name":"Default-667h.png","width":750,"height":1334},{"name":"Default-736h.png","width":1242,"height":2208},{"name":"Default-Landscape-736h.png","width":2208,"height":1242},{"name":"Default@2x~universal~anyany.png","width":2732,"height":2732}]\n'
+  var expected = '[{"name":"Default~iphone.png","width":320,"height":480},{"name":"Default@2x~iphone.png","width":640,"height":960},{"name":"Default-Portrait~ipad.png","width":768,"height":1024},{"name":"Default-Portrait@2x~ipad.png","width":1536,"height":2048},{"name":"Default-Landscape~ipad.png","width":1024,"height":768},{"name":"Default-Landscape@2x~ipad.png","width":2048,"height":1536},{"name":"Default-568h@2x~iphone.png","width":640,"height":1136},{"name":"Default-667h.png","width":750,"height":1334},{"name":"Default-Landscape-667h.png","width":1334,"height":750},{"name":"Default-736h.png","width":1242,"height":2208},{"name":"Default-Landscape-736h.png","width":2208,"height":1242},{"name":"Default@2x~universal~anyany.png","width":2732,"height":2732},{"name":"Default-812h.png","width":1125,"height":2436},{"name":"Default-Landscape-812h.png","width":2436,"height":1125},{"name":"Default-896h.png","width":828,"height":1792},{"name":"Default-Landscape-896h.png","width":1792,"height":828},{"name":"Default-896h@3x.png","width":1242,"height":2688},{"name":"Default-Landscape-896h@3x.png","width":2688,"height":1242},{"name":"Default-1112h.png","width":1668,"height":2224},{"name":"Default-Landscape-1112h.png","width":2224,"height":1668},{"name":"Default-1194h.png","width":1668,"height":2388},{"name":"Default-Landscape-1194h.png","width":2388,"height":1668},{"name":"Default-1366h.png","width":2048,"height":2732},{"name":"Default-Landscape-1366h.png","width":2732,"height":2048}]\n'
   exec('./bin/ios-splash.js --format json', function (error, stdout, stderr) {
     var err = error || stderr
     if (err) {

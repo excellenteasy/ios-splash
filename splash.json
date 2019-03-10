@@ -31,6 +31,10 @@
   "width": 750,
   "height": 1334
 }, {
+  "name": "Default-Landscape-667h.png",
+  "width": 1334,
+  "height": 750
+}, {
   "name": "Default-736h.png",
   "width": 1242,
   "height": 2208
@@ -42,5 +46,53 @@
   "name": "Default@2x~universal~anyany.png",
   "width": 2732,
   "height": 2732
+}, {
+  "name": "Default-812h.png",
+  "width": 1125,
+  "height": 2436
+}, {
+  "name": "Default-Landscape-812h.png",
+  "width": 2436,
+  "height": 1125
+}, {
+  "name": "Default-896h.png",
+  "width": 828,
+  "height": 1792
+}, {
+  "name": "Default-Landscape-896h.png",
+  "width": 1792,
+  "height": 828
+}, {
+  "name": "Default-896h@3x.png",
+  "width": 1242,
+  "height": 2688
+}, {
+  "name": "Default-Landscape-896h@3x.png",
+  "width": 2688,
+  "height": 1242
+}, {
+  "name": "Default-1112h.png",
+  "width": 1668,
+  "height": 2224
+}, {
+  "name": "Default-Landscape-1112h.png",
+  "width": 2224,
+  "height": 1668
+}, {
+  "name": "Default-1194h.png",
+  "width": 1668,
+  "height": 2388
+}, {
+  "name": "Default-Landscape-1194h.png",
+  "width": 2388,
+  "height": 1668
+}, {
+  "name": "Default-1366h.png",
+  "width": 2048,
+  "height": 2732
+}, {
+  "name": "Default-Landscape-1366h.png",
+  "width": 2732,
+  "height": 2048
 }
 ]
