@@ -1,5 +1,5 @@
 {
-  "name": "ios-splash",
+  "name": "@randy.tarampi/ios-splash",
   "version": "0.0.0-development",
   "description": "Get iOS splash screen files names and dimensions",
   "dependencies": {
@@ -7,21 +7,22 @@
     "yargs": "^8.0.1"
   },
   "devDependencies": {
-    "semantic-release": "^6.3.2",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
+    "semantic-release": "^15.13.3",
     "standard": "^10.0.1",
     "tape": "^4.0.0"
   },
   "bin": "./bin/ios-splash.js",
   "main": "index.js",
-  "author": "David Pfahler <david@excellenteasy.com>",
+  "author": "Randy Tarampi <randy.tarampi@gmail.com>",
   "engines": {
     "iojs": "^1",
     "node": "^0.10",
     "npm": "^2"
   },
   "scripts": {
-    "test": "standard && node test.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "standard && node test.js"
   },
   "files": [
     "index.js",
@@ -38,8 +39,11 @@
     "phonegap"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/excellenteasy/ios-splash"
+    "url": "https://github.com/randytarampi/ios-splash"
   }
 }

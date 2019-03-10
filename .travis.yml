@@ -4,13 +4,24 @@ notifications:
   email: false
 dist: xenial
 node_js:
-  - 8
-  - 4
-  - 6
-  - 10
-  - node
-after_success:
-  - npm run semantic-release
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+- 8
+- 4
+- 6
+- 10
+- node
+before_deploy:
+- git config --local user.name "$TRAVIS_AUTHOR_NAME"
+- git config --local user.email "$TRAVIS_AUTHOR_EMAIL"
+deploy:
+  provider: script
+  script: npx semantic-release
+  skip_cleanup: true
+  on:
+    branch: master
+    node: 8
+    os: linux
+sudo: false
+env:
+  global:
+  - secure: luvuNfu5Yk8MInU1eduaQ4yXoaQJ01bC+h9xFGyLoeQXWA36CPMeDmnyTA4OLCd9LB2+7Pr1OcJAzPvGIDKzn6vhYJlFlnSxhuUQENf9zYr0pqqfuiuQRadrzeRCoxmWLjgaZRGmzJ+mbjubHXJgYgTB0u1/vEQPPlvpkPsE8uwYlm6OwZwCdSNy8niSkwBM3DQub35pCF4Qvua2mj/zc+6sOwngaEvLSJu6rdmPMabJKvwnTjV2bE6M5aYyw1c0m6tY7f/1wqwjj+aLtZYiaC35sSqLc3TtpkfvtrFuY3t16C1TW68GtUdyFE+3WXV3ybagBUTRWNGosAX9No2EBTXUspunaOwZlgLe3Z1nqUwYUWQ+E+pktRnRQPZCziJRvDdKUJsP64sIWqk8fHJFEeHB4Il0VfPKRD+NwOxskDpmp5/dlDnRNYQf/fE7+Qo3sV3QxLCMsHGryXdtSdfLo/HLi3X89kyLgzL+Og1aRkQZHSaH9Rxr9Iph243MOJqUDSl0PgdGIuwpu0Iy7Lc8i4iwy7uvWRdTyDvSnckhTbOit9MKF/QiM/ySzEO3C4ThJF6/fHkZRmgc5FIOn7SHTRnRIScscF9r71522+7c/cBWn5P4Fz+ne+o1yl2g1Ex87scG6aXrRQxyJ+Q8hYYiUvU4AtGs7QtiHTtcsMS1WOQ=
+  - secure: uxXIrOBmUZ3quWoegmjfYNJI1Sz65rfXEdObaJsvH+5Nzvzbod1RbLOBr7tqcZQ4gWZl2ltZ38Pv8Ba8hk94lCdx5i6C0tP9CwNlLdF66X2PcxBGeZPd+EWyQhP002qXTCa0cJZp8iRLo9hPgpVVLVU6YKHrtK+Z396lnFmlHQFBmCWgReehAWOzA8pNVC70Ba3igyz04pQyqqVTPP/7qs3oaehSCSHll91g7e7boemP+sh5Fa8j3aabmS5IPm0rp8arEMgBR4Cjj9kL+tbl3y4v+7w12dXV0Enl7uX2AO4Mdk3nQDU8qMMNn27dM3NA87PpGG3l+GXQJuNmMdTIiwQVoVl5OSQnyHgICGcYnW0apTBoKSvQ+b0LWmqb2x22tBub+xKT5nWlsPke4B6ST5GAvmHzMZkmw4l8KhJMsJJ8aoeUMsum/x6pf9vFLLQsM72EZQ5dzZpAZONyHufvM1jeihwFpZlhbZ4Z6FcHAKLnxccVUlqisOisOrtz8CTbFrqicTUVyswDt6gKisE6JQepa0BPHyLAoWjRgtobKKykjQy17mddALpBz6QlOGtEHyq7S6SBU6MePIKwOj5Ox3r/rFS5i7h0Y5LZ2ZjpAsnt9O7ZOvXhcqFgkTfj9Pdjk6kwQCl7T1b59+StjsMOJDXZodv31qqzJzDDZAkbf2Y=

@@ -12,14 +12,14 @@ The default splash screen image file names and required sizes for iOS are listed
 ## Install
 
 ```sh
-$ npm install --save ios-splash
+$ npm install --save @randy.tarampi/ios-splash
 ```
 
 
 ## Usage
 
 ```js
-var splash = require('ios-splash');
+var splash = require('@randy.tarampi/ios-splash');
 
 splash();
 //=> [{"name":"Default~iphone.png","width":320,"height":480}, ...]
@@ -64,7 +64,7 @@ icons({size: "Landscape~ipad"});
 > ios-splash logs to stdout in comma-separated values format (csv) by default so you can easy pipe to other commands in UNIX systems.
 
 ```sh
-$ npm install --global ios-splash
+$ npm install --global @randy.tarampi/ios-splash
 ```
 
 ```sh
