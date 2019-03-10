@@ -1,7 +1,9 @@
 {
   "name": "@randy.tarampi/ios-splash",
-  "version": "2.2.0",
   "description": "Get iOS splash screen files names and dimensions",
+  "version": "2.2.0",
+  "author": "Randy Tarampi <randy.tarampi@gmail.com>",
+  "bin": "./bin/ios-splash.js",
   "dependencies": {
     "abbrev": "^1.1.1",
     "yargs": "^13.2.2"
@@ -13,39 +15,16 @@
     "standard": "^12.0.1",
     "tape": "^4.10.1"
   },
-  "bin": "./bin/ios-splash.js",
-  "main": "index.js",
-  "author": "Randy Tarampi <randy.tarampi@gmail.com>",
   "engines": {
     "iojs": "^1",
     "node": "^0.10",
     "npm": "^2"
   },
-  "scripts": {
-    "test": "standard && node test.js"
-  },
   "files": [
-    "index.js",
     "bin/ios-splash.js",
+    "index.js",
     "splash.json"
   ],
-  "keywords": [
-    "cli",
-    "bin",
-    "splash",
-    "screen",
-    "ios",
-    "cordova",
-    "phonegap"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/randytarampi/ios-splash"
-  },
   "greenkeeper": {
     "commitMessages": {
       "initialBadge": "docs(greenkeeper): Add Greenkeeper badge.",
@@ -64,5 +43,23 @@
       "basicPR": "chore(greenkeeper): Update ${dependency}",
       "groupPR": "chore(greenkeeper): Update ${dependency} for ${group}"
     }
+  },
+  "keywords": [
+    "bin",
+    "cli",
+    "cordova",
+    "ios",
+    "phonegap",
+    "screen",
+    "splash"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "randytarampi/ios-splash",
+  "scripts": {
+    "test": "standard && node test.js"
   }
 }
