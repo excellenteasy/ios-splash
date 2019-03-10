@@ -1,6 +1,6 @@
 {
   "name": "@randy.tarampi/ios-splash",
-  "version": "0.0.0-development",
+  "version": "2.2.0",
   "description": "Get iOS splash screen files names and dimensions",
   "dependencies": {
     "abbrev": "^1.0.5",
