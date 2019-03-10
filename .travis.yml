@@ -4,7 +4,6 @@ notifications:
 dist: xenial
 node_js:
 - 8
-- 4
 - 6
 - 10
 - node
