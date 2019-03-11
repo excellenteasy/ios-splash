@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/excellenteasy/ios-splash.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-splash)
 [![Dependency Status](https://david-dm.org/excellenteasy/ios-splash.svg)](https://david-dm.org/excellenteasy/ios-splash)
 [![devDependency Status](https://david-dm.org/excellenteasy/ios-splash/dev-status.svg)](https://david-dm.org/excellenteasy/ios-splash#info=devDependencies)
-[![Semantically Released](https://img.shields.io/badge/versioning-semantically%20released-brightgreen.svg)](https://github.com/boennemann/semantic-release)
+[![Semantically Released](https://img.shields.io/badge/versioning-semantically%20released-brightgreen.svg)](https://github.com/boennemann/semantic-release) [![Greenkeeper badge](https://badges.greenkeeper.io/randytarampi/ios-splash.svg)](https://greenkeeper.io/)
 
 > Get iOS splash screen files names and dimensions
 
