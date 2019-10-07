@@ -4,7 +4,7 @@
   "description": "Get iOS splash screen files names and dimensions",
   "dependencies": {
     "abbrev": "^1.0.5",
-    "yargs": "^8.0.1"
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "semantic-release": "^6.3.2",
