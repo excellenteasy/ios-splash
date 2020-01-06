@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/randytarampi/ios-splash/compare/v3.0.0...v3.1.0) (2020-01-06)
+
+
+### Features
+
+* **package:** Blindly upgrade our dependencies for the new year and support node@10, node@12 and beyond. ([d28b4fa](https://github.com/randytarampi/ios-splash/commit/d28b4fa697d8a604b5f697784789ac97214c60d4))
+
 # [3.0.0](https://github.com/randytarampi/ios-splash/compare/v2.2.0...v3.0.0) (2019-03-10)
 
 
