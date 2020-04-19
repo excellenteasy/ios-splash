@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/randytarampi/ios-splash/compare/v3.1.0...v3.1.1) (2020-04-19)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([f971df4](https://github.com/randytarampi/ios-splash/commit/f971df45457cf901958ea0e8139f5e63ca9723cd))
+
 # [3.1.0](https://github.com/randytarampi/ios-splash/compare/v3.0.0...v3.1.0) (2020-01-06)
 
 
