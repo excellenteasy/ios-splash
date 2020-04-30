@@ -6,7 +6,7 @@
   "bin": "./bin/ios-splash.js",
   "dependencies": {
     "abbrev": "^1.1.1",
-    "yargs": "^15.3.0"
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
