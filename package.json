@@ -1,7 +1,7 @@
 {
   "name": "@randy.tarampi/ios-splash",
   "description": "Get iOS splash screen files names and dimensions",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "author": "Randy Tarampi <randy.tarampi@gmail.com>",
   "bin": "./bin/ios-splash.js",
   "dependencies": {
